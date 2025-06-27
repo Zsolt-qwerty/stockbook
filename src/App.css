@@ -1,42 +1,42 @@
+html,
+body,
+#root,
+.App {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* border: red 2px dotted; */
+  /* border-radius: 12px; */
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+  min-width: 320px;
+  /* min-height: 100%; */
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header,
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+main {
+  flex-grow: 1;
+  padding-bottom: 2rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+header,
+main,
+footer {
+  box-sizing: border-box;
+  /* formatting guide only */
+  border: 1px dotted #2f0;
+  border-radius: 12px;
 }
