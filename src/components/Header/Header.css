@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+header div,
+header h1 {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  padding: 6px 12px;
+}

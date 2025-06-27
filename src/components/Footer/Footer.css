@@ -1,0 +1,47 @@
+footer {
+  color: #888;
+}
+
+footer p {
+  margin: 0 0 0.5rem;
+}
+
+.repository-link a {
+  will-change: filter;
+  transition: filter 300ms;
+}
+.repository-link a:hover {
+  filter: drop-shadow(0 0 0.5rem #535bf288);
+}
+
+.logo {
+  height: 1.5rem;
+  padding: 0;
+  will-change: filter;
+  transition: filter 300ms;
+}  
+.logo:hover {
+  filter: drop-shadow(0 0 0.5rem #646cffaa);
+}  
+.logo.react:hover {
+  filter: drop-shadow(0 0 0.5rem #61dafbaa);
+}  
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .react {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.icon-credit {
+  font-size: 0.6rem;
+}
