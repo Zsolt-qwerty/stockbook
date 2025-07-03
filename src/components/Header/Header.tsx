@@ -1,4 +1,3 @@
-import graphIcon from '/icons8-stock-market-96.png';
 import './Header.css';
 
 function Header() {
@@ -6,9 +5,9 @@ function Header() {
     <header>
       test 01
       <div>
-        <img src={graphIcon} height="48" alt="Stockbook Logo" />
+        <img src="icons8-stock-market-96.png" height="48" alt="Stockbook Logo" />
       </div>
-      <h1>stockbook v0.01</h1>
+      <h1>stockbook v0.0.0</h1>
     </header>
   );
 }
