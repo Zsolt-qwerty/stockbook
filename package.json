@@ -1,15 +1,17 @@
 {
   "name": "stockbook",
+  "version": "0.0.0",
   "description": "A stock market following tool",
   "author": "Zsolt-qwerty",
   "homepage": "https://zsolt-qwerty.github.io/stockbook/",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test": "vitest",
+    "type-check": "tsc --noEmit",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -30,6 +32,7 @@
     "globals": "^16.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    "vite": "^6.3.1",
+    "vitest": "^3.2.4"
   }
 }
