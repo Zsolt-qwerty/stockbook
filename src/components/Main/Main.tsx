@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Main.css';
 
 function Main() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
     <main>
