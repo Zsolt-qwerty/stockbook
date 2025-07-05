@@ -24,6 +24,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      VITE_FINNHUB_TOKEN: ${{ secrets.VITE_FINNHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
