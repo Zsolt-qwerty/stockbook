@@ -17,6 +17,8 @@ jobs:
     #   - https://gh.io/using-larger-runners (GitHub.com only)
     # Consider using larger runners or machines with greater resources for possible analysis time improvements.
     runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    env:
+      VITE_FINNHUB_TOKEN: ${{ secrets.VITE_FINNHUB_TOKEN }}
     permissions:
       # required for all workflows
       security-events: write
