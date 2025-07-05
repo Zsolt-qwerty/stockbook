@@ -12,7 +12,7 @@ function Main() {
     console.log('Component mounted');
 
     const api_key = ApiClient.instance.authentications['api_key'];
-    api_key.apiKey =getEnvVariableOrThrow('VITE_FINNHUB_TOKEN');
+    api_key.apiKey = getEnvVariableOrThrow('VITE_FINNHUB_TOKEN');
     const finnhubClient = new DefaultApi();
 
     const ticker: string = "AAPL"; // Example ticker symbol, can be changed to any valid symbol
