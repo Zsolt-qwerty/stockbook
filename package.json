@@ -17,6 +17,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "finnhub": "^1.2.19",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
