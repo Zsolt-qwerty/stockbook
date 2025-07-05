@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ApiClient, DefaultApi, QuoteData } from 'finnhub';
 import './Main.css';
+import { getEnvVariableOrThrow } from '../../utils/getEnvVariableOrThrow';
 
 function Main() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,7 @@ function Main() {
     console.log('Component mounted');
 
     const api_key = ApiClient.instance.authentications['api_key'];
-    api_key.apiKey = import.meta.env.VITE_FINNHUB_TOKEN;
+    api_key.apiKey = getEnvVariableOrThrow('VITE_FINNHUB_TOKEN');
     const finnhubClient = new DefaultApi();
 
     const ticker: string = "AAPL"; // Example ticker symbol, can be changed to any valid symbol
