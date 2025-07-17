@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer.tsx';
 function App() {
   return (
     <div className='App'>
+      <div className="dev-mode">Under development!</div>
       <Header />
       <Main />
       <Footer />
