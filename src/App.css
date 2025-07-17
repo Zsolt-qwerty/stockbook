@@ -1,3 +1,15 @@
+.dev-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  /* text-align: center; */
+  padding: 10px 50px;
+  font-weight: bold;
+}
+
 html,
 body,
 #root,
@@ -6,13 +18,10 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  /* border: red 2px dotted; */
-  /* border-radius: 12px; */
 }
 
-#root {
-  text-align: center;
-}
+/* #root {
+} */
 
 .App {
   min-width: 320px;
@@ -25,18 +34,19 @@ header,
 footer {
   flex-grow: 0;
   flex-shrink: 0;
+  text-align: center;
+  padding: 1rem;
 }
 
 main {
   flex-grow: 1;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
+  padding: 1rem 1rem 2rem;
+  margin: auto;
 }
 
 header,
 main,
 footer {
   box-sizing: border-box;
-  /* formatting guide only */
-  border: 1px dotted #2f0;
-  border-radius: 12px;
 }

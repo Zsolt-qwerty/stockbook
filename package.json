@@ -1,11 +1,17 @@
 {
   "name": "stockbook",
   "version": "0.0.0",
-  "description": "A stock market following tool",
+  "description": "A stock market tracker tool with an ever-growing set of features",
   "author": "Zsolt-qwerty",
   "homepage": "https://zsolt-qwerty.github.io/stockbook/",
   "private": true,
   "type": "module",
+  "overrides": {
+    "finnhub": {
+      "glob": "11.0.3",
+      "superagent": "10.2.2"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -18,8 +24,8 @@
   },
   "dependencies": {
     "finnhub": "^1.2.19",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -31,9 +37,9 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
-    "typescript": "~5.7.2",
+    "typescript": "^5.8.3",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1",
+    "vite": "^7.0.4",
     "vitest": "^3.2.4"
   }
 }
