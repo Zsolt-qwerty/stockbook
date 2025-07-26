@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 type StockCardProps = {
   companyProfile2Data: CompanyProfile2Data;
   stockQuoteData: QuoteData;
-}
+};
 
 function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): ReactNode {
 

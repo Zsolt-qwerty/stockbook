@@ -1,4 +1,4 @@
-declare module 'finnhub' {
+declare module "finnhub" {
   export interface QuoteData {
     c: number;  // current price
     d: number;  // price change
@@ -37,7 +37,7 @@ declare module 'finnhub' {
     summary: string;
     url: string;
   }
-  
+
   export class ApiClient {
     static instance: ApiClient;
     authentications: {
@@ -51,7 +51,7 @@ declare module 'finnhub' {
     constructor();
 
     companyProfile2(
-      symbol: {"symbol": string},
+      symbol: { symbol: string },
       callback: (
         error: Error | null,
         data: CompanyProfile2Data,

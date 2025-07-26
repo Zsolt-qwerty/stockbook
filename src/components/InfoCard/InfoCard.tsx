@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 type InfoCardProps = {
   companyProfile2Data: CompanyProfile2Data;
   stockQuoteData: QuoteData;
-}
+};
 
 function InfoCard({ companyProfile2Data, stockQuoteData }: InfoCardProps): ReactNode {
 
@@ -15,12 +15,8 @@ function InfoCard({ companyProfile2Data, stockQuoteData }: InfoCardProps): React
   return (
     <div className="card info">
       <div className="left">
-        <div className="ticker gray">
-          {companyProfile2Data.ticker}
-        </div>
-        <div className="stock-name">
-          {companyProfile2Data.name}
-        </div>
+        <div className="ticker gray">{companyProfile2Data.ticker}</div>
+        <div className="stock-name">{companyProfile2Data.name}</div>
         <div className="current-price">
           {companyProfile2Data.currency} {stockQuoteData.c}
         </div>
@@ -28,7 +24,8 @@ function InfoCard({ companyProfile2Data, stockQuoteData }: InfoCardProps): React
           stockQuoteData.d > 0 ? "green" :
           stockQuoteData.d < 0 ? "red" : "gray"
         }`}>
-          {stockQuoteData.d > 0 ? "+" : ""}{stockQuoteData.d} ({Math.abs(stockQuoteData.dp).toFixed(2)}%)
+          {stockQuoteData.d > 0 ? "+" : ""}
+          {stockQuoteData.d} ({Math.abs(stockQuoteData.dp).toFixed(2)}%)
         </div>
       </div>
       <div className="right">
