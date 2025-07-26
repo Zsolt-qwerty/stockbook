@@ -3,9 +3,9 @@ name: "Deployment"
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    types: [closed]
-    branches: [ "main" ]
+  # pull_request:
+  #   types: [closed]
+  #   branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch'
+    # if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
