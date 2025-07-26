@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import './Main.css';
+import { useState, useEffect } from "react";
+import "./Main.css";
 import {
   ApiClient,
   DefaultApi,
   CompanyProfile2Data,
   QuoteData,
   CompanyNewsData,
-} from 'finnhub';
-import { getEnvVariableOrThrow } from '../../utils/getEnvVariableOrThrow';
+} from "finnhub";
+import { getEnvVariableOrThrow } from "../../utils/getEnvVariableOrThrow.ts";
 
-import StockCard from '../StockCard/StockCard';
-import InfoCard from '../InfoCard/InfoCard';
-import NewsCard from '../NewsCard/NewsCard';
+import StockCard from "../StockCard/StockCard.tsx";
+import InfoCard from "../InfoCard/InfoCard.tsx";
+import NewsCard from "../NewsCard/NewsCard.tsx";
 
 function Main() {
 
@@ -20,78 +20,78 @@ function Main() {
 
   const [companyProfile2Data, setCompanyProfile2Data] = useState({} as CompanyProfile2Data);
   const [stockQuoteData, setStockQuoteData] = useState({} as QuoteData);
-  const [companyNewsData, setCompanyNewsData] = useState({} as CompanyNewsData);
+  const [companyNewsData, setCompanyNewsData] = useState([] as CompanyNewsData[]);
   const [ticker, setTicker] = useState(tickers[0] as string);
 
   useEffect(() => {
     // This effect runs once when the component mounts
-    console.log('Component mounted');
+    console.log("Component mounted");
 
-    const api_key = ApiClient.instance.authentications['api_key'];
-    api_key.apiKey = getEnvVariableOrThrow('VITE_FINNHUB_TOKEN');
+    const api_key = ApiClient.instance.authentications["api_key"];
+    api_key.apiKey = getEnvVariableOrThrow("VITE_FINNHUB_TOKEN");
     const finnhubClient = new DefaultApi();
 
     finnhubClient.companyProfile2({"symbol": ticker}, (error: Error | null, data: CompanyProfile2Data, response: unknown) => {
       if (error) {
-        console.error('API Error:', error);
+        console.error("API Error:", error);
         return;
       }
-      console.log('Company Profile 2 data:', data);
+      console.log("Company Profile 2 data:", data);
       setCompanyProfile2Data(data);
-      console.log('API response:', response);
+      console.log("API response:", response);
     });
     
     finnhubClient.quote(ticker, (error: Error | null, data: QuoteData, response: unknown) => {
       if (error) {
-        console.error('API Error:', error);
+        console.error("API Error:", error);
         return;
       }
-      console.log('Quote data:', data);
+      console.log("Quote data:", data);
       setStockQuoteData(data);
-      console.log('API response:', response);
+      console.log("API response:", response);
     });
 
-    // const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-    // const today = new Date().toISOString().slice(0, 10);
-    finnhubClient.companyNews(ticker, "2025-07-14", "2025-07-14", (error: Error | null, data: CompanyNewsData[], response: unknown) => {
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const today = new Date().toISOString().slice(0, 10);
+    finnhubClient.companyNews(ticker, yesterday, today, (error: Error | null, data: CompanyNewsData[], response: unknown) => {
       if (error) {
-      console.error('API Error:', error);
+      console.error("API Error:", error);
       return;
       }
-      console.log('Company News data:', data);
-      setCompanyNewsData(data[0]);
-      console.log('API response:', response);
+      console.log("Company News data:", data);
+      setCompanyNewsData(data);
+      console.log("API response:", response);
     });
 
     // // Uncomment the following lines to enable WebSocket connection
     // const token = import.meta.env.VITE_FINNHUB_TOKEN;
     // if (!token) {
-    //   console.error('VITE_FINNHUB_TOKEN is not set in environment variables');
+    //   console.error("VITE_FINNHUB_TOKEN is not set in environment variables");
     //   return;
     // }
     // const socket = new WebSocket(`wss://ws.finnhub.io?token=${token}`);
 
     // // Connection opened -> Subscribe
-    // socket.addEventListener('open', function () { // can add (event) if needed
-    //   console.log('WebSocket connection opened');
-    //   socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'AAPL'}))
-    //   socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'BINANCE:BTCUSDT'}))
-    //   socket.send(JSON.stringify({'type':'subscribe', 'symbol': 'IC MARKETS:1'}))
+    // socket.addEventListener("open", function () { // can add (event) if needed
+    //   console.log("WebSocket connection opened");
+    //   socket.send(JSON.stringify({"type":"subscribe", "symbol": "AAPL"}));
+    //   socket.send(JSON.stringify({"type":"subscribe", "symbol": "BINANCE:BTCUSDT"}));
+    //   socket.send(JSON.stringify({"type":"subscribe", "symbol": "IC MARKETS:1"}));
     // });
 
     // // Listen for messages
-    // socket.addEventListener('message', function (event) {
-    //   console.log('Message from server ', event.data);
+    // socket.addEventListener("message", function (event) {
+    //   console.log("Message from server ", event.data);
     // });
 
     // // // Unsubscribe
     // // const unsubscribe = function(symbol) {
-    // //   socket.send(JSON.stringify({'type':'unsubscribe','symbol': symbol}))
+    // //   socket.send(JSON.stringify({"type":"unsubscribe","symbol": symbol}));
     // // };
 
     // // Cleanup function
     // return () => {
-    //   console.log('Component unmounted');
+    //   console.log("Component unmounted");
     //   socket.close();
     // };
   }, [ticker]);

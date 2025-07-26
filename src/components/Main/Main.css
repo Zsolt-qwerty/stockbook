@@ -18,8 +18,8 @@
   /* display: inline-block; */
   border: 1px solid #ccc4;
   border-radius: 7px;
-  margin: 2px;
-  padding: 6px 12px;
+  margin: 0.1rem;
+  padding: 0.5rem 1rem;
 }
 
 .stock {
@@ -39,9 +39,19 @@
 
 .news {
   text-align: left;
+  padding-bottom: 1rem;
   p {
     margin: 0.5rem 0;
     padding: 0;
+  }
+  hr {
+    margin: 1rem -1rem;
+    border: none;
+    border-top: 1px solid #ccc4;
+  }
+  img {
+    height: 15px;
+    vertical-align: middle;
   }
 }
 
