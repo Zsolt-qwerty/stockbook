@@ -1,20 +1,14 @@
-import { describe, test, expect } from 'vitest';
-// import React from "react";
-// import { render } from "@testing-library/react";
-// import Header from "./Header"; // Uncomment this line when the Header component is implemented
+import { describe, test, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import Header from "./Header.tsx";
+import "@testing-library/jest-dom";
 
-describe("Test will always pass", () => {
-  test("1 + 1 should equal 2", () => {
-    const result = 2;
-    const expected = 1 + 1;
-    expect(expected).toBe(result);
+describe("Header component", () => {
+  test("should render without crashing", () => {
+    render(<Header />);
+    screen.getByText(/stockbook/i);
+    expect(screen.getByRole("img")).toHaveAttribute("src");
+    expect(screen.getByRole("img")).toHaveAttribute("alt", "Stockbook Logo");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/stockbook/i);
   });
 });
-
-// describe("Header component", () => {
-//   test("should render without crashing", () => {
-//     // This is a placeholder test for the Header component.
-//     // In a real test, you would render the Header component and check its output.
-//     expect(true).toBe(true);
-//   });
-// });
