@@ -1,6 +1,6 @@
-import reactLogo from '../../assets/react.svg';
-import viteLogo from '/vite.svg';
-import './Footer.css';
+import reactLogo from "../../assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -19,11 +19,15 @@ function Footer() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <p className="tech-credit">
-        Built with Vite and React.
-      </p>
+      <p className="tech-credit">Built with Vite and React.</p>
       <p className="icon-credit">
-        <a target="_blank" href="https://icons8.com/icon/13555/increase">Stock Market</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/13555/increase">
+          Stock Market
+        </a>
+        {" icon by "}
+        <a target="_blank" href="https://icons8.com">
+          Icons8
+        </a>
       </p>
     </footer>
   );

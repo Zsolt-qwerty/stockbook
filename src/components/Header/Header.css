@@ -8,8 +8,13 @@ header {
 header div,
 header h1 {
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0.4rem 0.8rem;
   margin: 0;
+}
+
+header img {
+  height: 3rem;
+  width: auto;
 }
