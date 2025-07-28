@@ -1,5 +1,6 @@
 import { CompanyProfile2Data, QuoteData } from "finnhub";
 import { ReactNode } from "react";
+import getCurrencySymbol from "../../utils/getCurrencySymbol.ts";
 
 type InfoCardProps = {
   companyProfile2Data: CompanyProfile2Data;
@@ -18,19 +19,24 @@ function InfoCard({ companyProfile2Data, stockQuoteData }: InfoCardProps): React
         <div className="ticker gray">{companyProfile2Data.ticker}</div>
         <div className="stock-name">{companyProfile2Data.name}</div>
         <div className="current-price">
-          {companyProfile2Data.currency} {stockQuoteData.c}
+          {getCurrencySymbol(companyProfile2Data.currency)}
+          {stockQuoteData.c.toFixed(2)}
         </div>
         <div className={`difference ${
           stockQuoteData.d > 0 ? "green" :
           stockQuoteData.d < 0 ? "red" : "gray"
         }`}>
           {stockQuoteData.d > 0 ? "+" : ""}
-          {stockQuoteData.d} ({Math.abs(stockQuoteData.dp).toFixed(2)}%)
+          {stockQuoteData.d.toFixed(2)}
+          {` (${Math.abs(stockQuoteData.dp).toFixed(2)}%)`}
         </div>
       </div>
       <div className="right">
         <div className="stockLogo">
-          <img src={companyProfile2Data.logo} alt="" />
+          <img
+            src={companyProfile2Data.logo}
+            alt={`Logo of ${companyProfile2Data.name}`}
+          />
         </div>
       </div>
     </div>
