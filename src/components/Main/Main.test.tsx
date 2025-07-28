@@ -4,7 +4,7 @@ import Main from "./Main.tsx";
 import "@testing-library/jest-dom";
 
 describe("Main component", () => {
-  test("should render without crashing", () => {
+  test("should render ok", () => {
     render(<Main />);
     screen.getByText(/latest/i);
     expect(screen.getByRole("main")).toHaveTextContent(/news/i);

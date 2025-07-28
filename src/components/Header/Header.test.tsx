@@ -4,7 +4,7 @@ import Header from "./Header.tsx";
 import "@testing-library/jest-dom";
 
 describe("Header component", () => {
-  test("should render without crashing", () => {
+  test("should render ok", () => {
     render(<Header />);
     screen.getByText(/stockbook/i);
     expect(screen.getByRole("img")).toHaveAttribute("src");
