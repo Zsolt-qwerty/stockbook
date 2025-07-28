@@ -7,7 +7,7 @@ import {
   QuoteData,
   CompanyNewsData,
 } from "finnhub";
-import { getEnvVariableOrThrow } from "../../utils/getEnvVariableOrThrow.ts";
+import getEnvVarOrThrowErr from "../../utils/getEnvVarOrThrowErr.ts";
 
 import StockCard from "../StockCard/StockCard.tsx";
 import InfoCard from "../InfoCard/InfoCard.tsx";
@@ -28,7 +28,7 @@ function Main() {
     console.log("Component mounted");
 
     const api_key = ApiClient.instance.authentications["api_key"];
-    api_key.apiKey = getEnvVariableOrThrow("VITE_FINNHUB_TOKEN");
+    api_key.apiKey = getEnvVarOrThrowErr("VITE_FINNHUB_TOKEN");
     const finnhubClient = new DefaultApi();
 
     finnhubClient.companyProfile2({"symbol": ticker}, (error: Error | null, data: CompanyProfile2Data, response: unknown) => {
