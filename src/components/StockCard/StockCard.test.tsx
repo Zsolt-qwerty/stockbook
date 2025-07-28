@@ -58,7 +58,7 @@ describe("StockCard component", () => {
         stockQuoteData={mockData.stockQuoteData}
       />
     );
-    screen.getByText("USD150.00");
+    screen.getByText("$150.00");
     screen.getByText("+1.50 (1.01%)");
   });
 });

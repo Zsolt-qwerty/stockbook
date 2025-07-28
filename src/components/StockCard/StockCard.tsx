@@ -1,5 +1,6 @@
 import { CompanyProfile2Data, QuoteData } from "finnhub";
 import { ReactNode } from "react";
+import getCurrencySymbol from "../../utils/getCurrencySymbol";
 
 type StockCardProps = {
   companyProfile2Data: CompanyProfile2Data;
@@ -24,7 +25,7 @@ function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): Rea
         {companyProfile2Data.name}
       </div>
       <div className="right">
-        {companyProfile2Data.currency}
+        {getCurrencySymbol(companyProfile2Data.currency)}
         {stockQuoteData.c.toFixed(2)}
       </div>
       <div className="left gray">
