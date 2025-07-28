@@ -35,7 +35,8 @@ function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): Rea
         stockQuoteData.d > 0 ? "green" :
         stockQuoteData.d < 0 ? "red" : "gray"
       }`}>
-        {stockQuoteData.d > 0 ? "+" : ""}{stockQuoteData.d.toFixed(2)}
+        {stockQuoteData.d > 0 ? "+" : ""}
+        {stockQuoteData.d.toFixed(2)}
         {` (${Math.abs(stockQuoteData.dp).toFixed(2)}%)`}
       </div>
     </div>
