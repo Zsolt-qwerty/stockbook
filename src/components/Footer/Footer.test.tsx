@@ -4,7 +4,7 @@ import Footer from "./Footer.tsx";
 import "@testing-library/jest-dom";
 
 describe("Footer component", () => {
-  test("should render without crashing", () => {
+  test("should render ok", () => {
     render(<Footer />);
     screen.getByText(/stockbook/i);
     expect(screen.getByRole("img", { name: /vite/i })).toHaveAttribute("src");

@@ -15,13 +15,17 @@ function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): Rea
   return (
     <div className="card stock">
       <div className="stockLogo">
-        <img src={companyProfile2Data.logo} alt="" />
+        <img
+          src={companyProfile2Data.logo}
+          alt={`Logo of ${companyProfile2Data.name}`}
+        />
       </div>
       <div className="left">
         {companyProfile2Data.name}
       </div>
       <div className="right">
-        {companyProfile2Data.currency} {stockQuoteData.c}
+        {companyProfile2Data.currency}
+        {stockQuoteData.c.toFixed(2)}
       </div>
       <div className="left gray">
         {companyProfile2Data.ticker}
@@ -30,7 +34,9 @@ function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): Rea
         stockQuoteData.d > 0 ? "green" :
         stockQuoteData.d < 0 ? "red" : "gray"
       }`}>
-        {stockQuoteData.d > 0 ? "+" : ""}{stockQuoteData.d} ({Math.abs(stockQuoteData.dp).toFixed(2)}%)
+        {stockQuoteData.d > 0 ? "+" : ""}
+        {stockQuoteData.d.toFixed(2)}
+        {` (${Math.abs(stockQuoteData.dp).toFixed(2)}%)`}
       </div>
     </div>
   );
