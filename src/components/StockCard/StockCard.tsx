@@ -1,6 +1,6 @@
 import { CompanyProfile2Data, QuoteData } from "finnhub";
 import { ReactNode } from "react";
-import getCurrencySymbol from "../../utils/getCurrencySymbol.ts";
+import getCurrencySymbol from "../../utils/getCurrencySymbol";
 
 type StockCardProps = {
   companyProfile2Data: CompanyProfile2Data;
