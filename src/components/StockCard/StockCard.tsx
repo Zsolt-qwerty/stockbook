@@ -1,20 +1,41 @@
-import { CompanyProfile2Data, QuoteData } from "finnhub";
 import { ReactNode } from "react";
 import getCurrencySymbol from "../../utils/getCurrencySymbol.ts";
+import { useStockData } from "../../hooks/useStockData.ts";
 
 type StockCardProps = {
-  companyProfile2Data: CompanyProfile2Data;
-  stockQuoteData: QuoteData;
+  ticker: string;
+  onClick?: () => void;
+  isSelected?: boolean;
 };
 
-function StockCard({ companyProfile2Data, stockQuoteData }: StockCardProps): ReactNode {
+function StockCard({ ticker, onClick, isSelected }: StockCardProps): ReactNode {
+  const { companyProfile2Data, stockQuoteData, isLoading, error } = useStockData(ticker);
+
+  if (isLoading) {
+    return <div className="card stock">Loading {ticker}...</div>;
+  }
+
+  if (error) {
+    return <div className="card stock">Error loading {ticker}: {error}</div>;
+  }
 
   if (!stockQuoteData || !companyProfile2Data || !companyProfile2Data.ticker) {
-    return <div className="card stock">No stock data available</div>;
+    return <div className="card stock">No stock data available for {ticker}</div>;
   }
 
   return (
-    <div className="card stock">
+    <div
+      className={`card stock ${isSelected ? 'selected' : ''} ${onClick ? 'clickable' : ''}`}
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      } : undefined}
+    >
       <div className="stockLogo">
         <img
           src={companyProfile2Data.logo}

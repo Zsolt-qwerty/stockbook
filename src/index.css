@@ -9,10 +9,15 @@
   --header-footer-bg-color: #242424;
   --text-color: #ffffffde;
   --footer-text-color: #888;
-  --button-bg-color: #242424;
   --link-color: #646cff;
   --link-hover-color: #535bf2;
+  --button-bg-color: var(--header-footer-bg-color);
+  --button-hover-border-color: var(--link-color);
   --border-color: #ccc4;
+  --selected-bg-color: var(--button-bg-color);
+  --gray-text-color: #93999b;
+  --green-text-color: #57d54c;
+  --red-text-color: #fc4949;
 
   --border-radius: 0.5rem;
 
@@ -58,7 +63,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--button-hover-border-color);
 }
 button:focus,
 button:focus-visible {

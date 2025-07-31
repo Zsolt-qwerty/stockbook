@@ -2,7 +2,6 @@
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  /* justify-items: center; */
 }
 
 .left-window,
@@ -10,12 +9,10 @@
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  /* padding: 1rem; */
   /* width: 100%; */
 }
 
 .card {
-  /* display: inline-block; */
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   margin: 0.1rem;
@@ -66,7 +63,7 @@
     margin: 4px 16px 0 4px;
     padding: 0;
     height: 2.5rem;
-    border: 1px solid #ccc;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
   }
 }
@@ -80,13 +77,40 @@
 }
 
 .gray {
-  color: #93999b;
+  color: var(--gray-text-color);
 }
 
 .green {
-  color: #57d54c;
+  color: var(--green-text-color);
 }
 
 .red {
-  color: #fc4949;
+  color: var(--red-text-color);
+}
+
+/* Clickable and selected stock card styles */
+.stock.clickable {
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.stock.clickable:hover {
+  border-color: var(--button-hover-border-color);
+  transform: translateY(-1px);
+}
+
+.stock.clickable:focus {
+  outline-offset: 2px;
+}
+
+.stock.clickable:active {
+  transform: translateY(0);
+}
+
+.stock.selected {
+  background-color: var(--selected-bg-color);
+  border-width: 2px;
 }
