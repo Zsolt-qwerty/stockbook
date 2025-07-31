@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { CompanyProfile2Data, QuoteData } from "finnhub";
-import getEnvVarOrThrowErr from "../utils/getEnvVarOrThrowErr";
-
-const FINNHUB_BASE_URL = "https://finnhub.io/api/v1";
+import { FINNHUB_BASE_URL, FINNHUB_API_KEY } from "./finnhubCredentials.ts";
 
 interface UseStockDataReturn {
   companyProfile2Data: CompanyProfile2Data;
@@ -26,8 +24,6 @@ export function useStockData(ticker: string): UseStockDataReturn {
 
     const fetchStockData = async () => {
       try {
-        const FINNHUB_API_KEY = getEnvVarOrThrowErr("VITE_FINNHUB_TOKEN");
-
         // Fetch company profile and quote data in parallel
         const [profileResponse, quoteResponse] = await Promise.all([
           fetch(

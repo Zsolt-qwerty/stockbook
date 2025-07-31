@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { CompanyNewsData } from "finnhub";
-import getEnvVarOrThrowErr from "../utils/getEnvVarOrThrowErr";
-
-const FINNHUB_BASE_URL = "https://finnhub.io/api/v1";
+import { FINNHUB_BASE_URL, FINNHUB_API_KEY } from "./finnhubCredentials.ts";
 
 interface UseCompanyNewsReturn {
   companyNewsData: CompanyNewsData[];
@@ -24,8 +22,6 @@ export function useCompanyNews(ticker: string): UseCompanyNewsReturn {
 
     const fetchCompanyNews = async () => {
       try {
-        const FINNHUB_API_KEY = getEnvVarOrThrowErr("VITE_FINNHUB_TOKEN");
-
         const yesterday = new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
         const today = new Date().toISOString().split("T")[0];
         

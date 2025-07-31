@@ -7,7 +7,7 @@ function Header() {
       <div>
         <img src={stockbookLogo} alt="Stockbook Logo" />
       </div>
-      <h1>stockbook v0.0.0</h1>
+      <h1>stockbook v0.1.0</h1>
     </header>
   );
 }
