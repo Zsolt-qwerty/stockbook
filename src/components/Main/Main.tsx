@@ -8,7 +8,7 @@ import InfoCard from "../InfoCard/InfoCard.tsx";
 import NewsCard from "../NewsCard/NewsCard.tsx";
 
 // Example ticker symbols, can be changed to any valid symbols
-const tickers: string[] = ["AAPL", "TSLA", "GOOGL", "NVDA", "AMZN", "MSFT", "META", "NFLX", "BRK.A", "V", "JPM", "INTC", "AMD", "CSCO"];
+const tickers: string[] = ["AAPL", "TSLA", "GOOGL", "NVDA", "AMZN", "MSFT", "META", "NFLX", "SOUN", "INTC", "AMD", "CSCO", "BRK.A", "V", "JPM"];
 
 function Main() {
   const [selectedTicker, setSelectedTicker] = useState(tickers[0]);
@@ -26,7 +26,7 @@ function Main() {
             const nextIndex = (currentIndex + 1) % tickers.length;
             setSelectedTicker(tickers[nextIndex]);
           }}>
-            View details for {tickers[(tickers.indexOf(selectedTicker) + 1) % tickers.length]}
+            View {tickers[(tickers.indexOf(selectedTicker) + 1) % tickers.length]}
           </button>
           {tickers.map((ticker) => (
             <StockCard
