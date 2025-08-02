@@ -7,7 +7,7 @@ declare module "finnhub" {
     l: number;  // low price of the day
     o: number;  // open price of the day
     pc: number; // previous close price
-    t: number;  // timestamp
+    t: number;  // Unix timestamp
   }
 
   export interface CompanyProfile2Data {
@@ -28,7 +28,7 @@ declare module "finnhub" {
 
   export interface CompanyNewsData {
     category: string;
-    datetime: number; //1752425220 - UNIX timestamp
+    datetime: number; // Unix timestamp
     headline: string;
     id: number;
     image: string;
