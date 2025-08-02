@@ -4,10 +4,8 @@ import "./Header.css";
 function Header() {
   return (
     <header>
-      <div>
-        <img src={stockbookLogo} alt="Stockbook Logo" />
-      </div>
-      <h1>stockbook v0.1.0</h1>
+      <img src={stockbookLogo} alt="Stockbook Logo" />
+      <h1>stockbook</h1>
     </header>
   );
 }
